@@ -10,10 +10,6 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-    res.sendFile("index.html", { root: '.' });
-});
-
 app.post("/getInterfaceID", function (req, res) {
 
     data = req.body.abi;
