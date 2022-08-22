@@ -46,13 +46,7 @@ app.post("/getInterfaceID", function (req, res) {
     ret = ret.toLowerCase();
     //console.log(ret);
 
-    if(ret) {
-        res.send(ret);
-    }
-
-    else{
-        res.sendStatus(500);
-    } 
+    res.send(ret);
 
 });
 
