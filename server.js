@@ -39,7 +39,7 @@ app.post("/getInterfaceID", function (req, res) {
     let ret = "0x";
     if(XORedSelectors.length != 8){
         for(let i = 0; i < 8-XORedSelectors.length; i++){
-            helper += "0";
+            ret += "0";
         }
     }
     ret += XORedSelectors;
