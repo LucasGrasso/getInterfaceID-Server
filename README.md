@@ -1,7 +1,9 @@
 # getInterfaceID-Server
 Get interface ID of a solidity interface.
 
-Node.js app that serves the objective of retrieving the EIP-165 interfaceID from a contract interface. Made using ethers.js
+Node.js app that serves the objective of retrieving the EIP-165 interfaceID of a contract interface with the Interface ABI.   
+[Here´s a link on how to obtain the ABI in REMIX IDE](https://ethereum.stackexchange.com/questions/26900/how-to-get-the-contract-abi-in-new-remix-ide).  
+Made using ethers.js
 
 Be sure to run 
 ```
