@@ -28,7 +28,6 @@ app.post("/getInterfaceID", function (req, res) {
 
 
     sigHashes.forEach(hash => {
-        console.log(parseInt(hash, 16));
         parsedSigHashes.push(parseInt(hash, 16));  //Convierto Hex Strings a Ints.
     });
 
@@ -36,15 +35,23 @@ app.post("/getInterfaceID", function (req, res) {
         parsedSigHashes[0] = parsedSigHashes[0] ^ parsedSigHashes[i]; //XOR a todos los selectores, Guardo el resultado en hashBuffers[0]
     }
 
-    ret = "0x" + decimalToHexString(parsedSigHashes[0])
-    console.log(ret);
+    let XORedSelectors = decimalToHexString(parsedSigHashes[0]);
+    let ret = "0x";
+    if(XORedSelectors.length != 8){
+        for(let i = 0; i < 8-XORedSelectors.length; i++){
+            helper += "0";
+        }
+    }
+    ret += XORedSelectors;
+    ret = ret.toLowerCase();
+    //console.log(ret);
 
     if(ret) {
         res.send(ret);
     }
 
     else{
-        res.sendStatus(204);
+        res.sendStatus(500);
     } 
 
 });
@@ -60,4 +67,3 @@ function decimalToHexString(number)
 
     return number.toString(16).toUpperCase();
 }
-
