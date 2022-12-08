@@ -10,6 +10,12 @@ app.use(cors());
 
 const PORT = process.env.PORT || 5000;
 
+
+app.get("/", function (req, res) {
+    res.send("Hello World!");
+});
+
+
 app.post("/getInterfaceID", function (req, res) {
 
     data = req.body.abi;
